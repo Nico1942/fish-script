@@ -12,9 +12,9 @@ A colection of script and alias that I was created for my fish shell
 
 *Functions*
 
-* abrirAqui: open the corrent directory in nautilus
+* abrirAqui: open the current directory in nautilus
 * miIP: Show my local IP
-* miIPqr: Show my local IP on qr format (needed feh)
+* miIPqr: Show my local IP on qr format (feh needed)
 * miResolucion: Show my screen resolution
 * miWall: resize an image to my current resolution
 * random_name: generate a random user name
