@@ -1,5 +1,9 @@
 #!/usr/bin/fish
 
+#### Opciones ####
+set LARGO_MAX 10
+set LARGO_MIN 2
+
 function help 
   echo "Se debe ingresar el número de letras del nombre."
   echo "Usar -r para nombre aleatorio."
@@ -12,13 +16,13 @@ function main
 
   set LARGO $argv[1] 
 
-  if test $LARGO -gt 10
-    set LARGO 10
+  if test $LARGO -gt $LARGO_MAX
+    set LARGO $LARGO_MAX
     echo "Tamaño máximo: $LARGO."
   end
 
-  if test $LARGO -lt 2
-    set LARGO 2
+  if test $LARGO -lt $LARGO_MIN
+    set LARGO $LARGO_MIN
     echo "Tamaño mínimo: $LARGO."
   end
 
@@ -37,11 +41,10 @@ function main
       set NOMBRE (echo $NOMBRE$VOCALES[$INDICE])
       set LETRA 1
     end
-    if test $i = 1
-      set NOMBRE (string upper $NOMBRE)
-    end
   end
 
+  ### Capitalize ###
+  set NOMBRE (echo $NOMBRE | sed 's/[^_-]*/\u&/' )
   echo "Tu nombre es $NOMBRE"
 
 end
