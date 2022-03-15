@@ -1,28 +1,23 @@
-#!/usr/bin/fish
-
-#### Opciones ####
-set LARGO_MAX 10
-set LARGO_MIN 2
+# Defined in - @ line 47
 
 function help 
   echo "Se debe ingresar el número de letras del nombre."
   echo "Usar -r para nombre aleatorio."
-  exit 1
 end
 
 function main
   set VOCALES a e i o u
-  set CONSONANTES b bl br bs bv c cl cr ct d dr f fl fr g gr h j k l ll m mn n p pl pr qu r rr s sl st sm t tr tl v w x y z
+  set CONSONANTES b bl br bs bv c cl cr ct d dr f fl fr g gr h j k l ll m mn n ñ p pl pr qu r rr s sl st sm t tr tl v w x y z
 
   set LARGO $argv[1] 
 
-  if test $LARGO -gt $LARGO_MAX
-    set LARGO $LARGO_MAX
+  if test $LARGO -gt 10
+    set LARGO 10
     echo "Tamaño máximo: $LARGO."
   end
 
-  if test $LARGO -lt $LARGO_MIN
-    set LARGO $LARGO_MIN
+  if test $LARGO -lt 2
+    set LARGO 2
     echo "Tamaño mínimo: $LARGO."
   end
 
@@ -43,18 +38,19 @@ function main
     end
   end
 
-  ### Capitalize ###
-  set NOMBRE (echo $NOMBRE | sed 's/[^_-]*/\u&/' )
+  set NOMBRE (echo $NOMBRE | sed 's/[^_-]*/\u&/g')
+
   echo "Tu nombre es $NOMBRE"
 
 end
 
-if test $argv[1]
+function random_name
+  if test $argv[1]
   and string match -qr '^[0-9]+$' $argv[1]
-  main $argv[1]
-else if test $argv[1]
-  main (random 2 10)
-else
-  help
+    main $argv[1]
+  else if [ $argv[1] = "-r" ]
+    main (random 2 10)
+  else
+    help
+  end
 end
-
