@@ -1,16 +1,19 @@
 # fish-script
 A colection of script and alias that I was created for my fish shell
 
-*Aliases*
+### Aliases
 
 * actualizar: sudo dnf update
 * cfish: cd to fish config directory
 * cls: clean screen
+* ea: exa -a
 * l: exa
 * py: python3
+* qq: exit
 * uptime: uptime -p
+* vim: nvim
 
-*Functions*
+### Functions
 
 * abrirAqui: open the current directory in nautilus
 * miIP: Show my local IP
