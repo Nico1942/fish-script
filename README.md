@@ -20,5 +20,6 @@ A colection of script and alias that I was created for my fish shell
 * miIPqr: Show my local IP on qr format (feh needed)
 * miResolucion: Show my screen resolution
 * miWall: resize an image to my current resolution
+* neoext: a fetch for gnome extensions
 * random_name: generate a random user name
 * yip: Year in progress, just for fun
