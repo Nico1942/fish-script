@@ -7,6 +7,11 @@ function yip
   set TIME_SLOW 0.3
   set TIME_FAST 0.07
 
+  if test "$argv" = "-no-time"
+    set TIME_FAST 0
+    set TIME_SLOW 0
+  end
+
   set HOY (date +%j)
   set CIEN (date +%j -d "Dec 31")
   set PORCENTAJE (math -s0 (math 100/$CIEN) \* $HOY)
@@ -31,9 +36,9 @@ function yip
     echo -en "⣿"
   end
 
-  sleep 0.5
+  sleep $TIME_FAST 
   set_color -o $FRONT_COLOR
   echo " $PORCENTAJE%"
-  sleep 0.5
+  sleep $TIME_FAST 
 
 end

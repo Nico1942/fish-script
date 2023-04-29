@@ -8,6 +8,7 @@ end
 function main
   set VOCALES a e i o u
   set CONSONANTES b bl br bs bv c cl cr ct d dr f fl fr g gr h j k l ll m mn n ñ p pl pr qu r rr s sl st sm t tr tl v w x y z
+ # set CONSONANTES b c d f g h j k l m n ñ p qu r s t v w x y z
 
   set LARGO $argv[1] 
 
@@ -45,10 +46,9 @@ function main
 end
 
 function random_name
-  if test $argv[1]
-  and string match -qr '^[0-9]+$' $argv[1]
+  if string match -qr '^[0-9]+$' $argv
     main $argv[1]
-  else if [ $argv[1] = "-r" ]
+  else if [ $argv = "-r" ]
     main (random 2 10)
   else
     help
