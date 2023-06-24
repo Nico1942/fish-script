@@ -25,7 +25,8 @@ function yip
   set_color -o $FRONT_COLOR
   for i in (seq 1 $BARRA)
     sleep $TIME_SLOW
-    echo -en "⣿"
+    echo -en "o"
+#    echo -en "⣿"
   end
 
   sleep $TIME_SLOW
@@ -33,12 +34,12 @@ function yip
   set_color $BACK_COLOR
   for i in (seq 1 (math 10 - $BARRA))
     sleep $TIME_FAST
-    echo -en "⣿"
+    echo -en "o"
   end
 
   sleep $TIME_FAST 
   set_color -o $FRONT_COLOR
   echo " $PORCENTAJE%"
-  sleep $TIME_FAST 
+  sleep $TIME_SLOW 
 
 end

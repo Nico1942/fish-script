@@ -38,7 +38,7 @@ function ext-fetch --description="Show all gnome extensions enabled."
   end
 
 
-  echo ""; echo ""
+  echo -e "\n"
   echo -e $logoWidth$space\b\b"┌──────────────────────────────┐" | lolcat -b
 
   for i in $logo

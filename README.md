@@ -23,5 +23,5 @@ A colection of script and alias that I was created for my fish shell
 * miResolucion: Show my screen resolution
 * miWall: resize an image to my current resolution
 * random_name: generate a random user name
-* symlink: create simbolik link (author: [razzius](https://github.com/razzius/fish-functions/tree/master/functions))
+* symlink: create simbolic link (author: [razzius](https://github.com/razzius/fish-functions/tree/master/functions))
 * yip: Year in progress, just for fun
