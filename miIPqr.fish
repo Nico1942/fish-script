@@ -5,7 +5,7 @@ function miIPqr
     set argv[1] $PUERTO
   end
   set IP (hostname -I | cut -d ' ' -f1)
-  echo http://$IP:$argv[1]/index.html | qrencode -o host_index.png;
-  feh host_index.png
-  rm host_index.png
+   qrencode -t ansiutf8 (echo http://$IP:$argv[1]/index.html) 
+   #feh host_index.png
+   #rm host_index.png
 end
