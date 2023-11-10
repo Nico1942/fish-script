@@ -5,9 +5,10 @@ A colection of script and alias that I was created for my fish shell
 
 * actualizar: sudo dnf update
 * cfish: cd to fish config directory
-* cls: clean screen
-* ea: exa -a
-* l: exa
+* cls: clear
+* ea: eza -a
+* e: eza
+* l: eza
 * py: python3
 * qq: exit
 * uptime: uptime -p
@@ -16,12 +17,13 @@ A colection of script and alias that I was created for my fish shell
 ### Functions
 
 * abrirAqui: open the current directory in nautilus
-* ext-fetch: a fetch for gnome extensions
-* ext-fetch-tiny: a simple fetch for gnome extensions
+* ext-fetch: a fetch for gnome extensions ([NerdFonts](https://www.nerdfonts.com/font-downloads) needed)
+* ext-fetch-tiny: a simple fetch for gnome extensions ([NerdFonts](https://www.nerdfonts.com/font-downloads) needed)
 * miIP: Show my local IP
 * miIPqr: Show my local IP on qr format (feh needed)
 * miResolucion: Show my screen resolution
 * miWall: resize an image to my current resolution
 * random_name: generate a random user name
 * symlink: create simbolic link (author: [razzius](https://github.com/razzius/fish-functions/tree/master/functions))
+* string-empy: needed for symlink (author: [razzius](https://github.com/razzius/fish-functions/tree/master/functions))
 * yip: Year in progress, just for fun

@@ -1,3 +1,3 @@
 function e --wraps=exa --description 'alias e exa'
-  eza $argv; 
+  eza --icons $argv; 
 end
