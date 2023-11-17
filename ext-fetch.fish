@@ -11,7 +11,7 @@ function ext-fetch --description="Show all gnome extensions enabled."
     set logo[6] "⠀⢿⣿⣿⣿⡿⠋⠁⣀⣀⠀⠀"
     set logo[7] "⠀⠈⢿⣿⣿⣄⣀⣼⣿⡿⠁⠀"
     set logo[8] "⠀⠀⠀⠉⠛⠿⠿⠿⠛⠁⠀⠀"
-    set logoWidth "           "
+    set logoWidth "            "
 
     #set logo[1]   " ⠀⠀⠀⠀⠀⠀⢀⣤⡄⠀⢀⣤⣶⣶⣦"
     #set logo[2]   " ⠀⠀⠀⣴⣶⠀⢺⣿⡇⠀⣾⣿⣿⣿⠃"
@@ -32,10 +32,9 @@ function ext-fetch --description="Show all gnome extensions enabled."
 
     # Setup title
     set logo[1] "$logo[1]$space\033[1;37mextensions [$totalExtensions]"
-    set logo[2] "$logo[2]$space\b\b\b\033[1;37m├──────────────────────────────┤"
 
     set logoHeight (count $logo)
-    set index 3
+    set index 2
 
     for i in $extensions
         if test $index -le $logoHeight
@@ -47,9 +46,11 @@ function ext-fetch --description="Show all gnome extensions enabled."
         end
     end
 
+    if test $index -le $logoHeight
+        set logoWidth ""
+    end
 
-    echo -e "\n"
-    echo -e $logoWidth$space\b\b"┌──────────────────────────────┐" | lolcat -b
+    set logo[$index] "$logo[$index]$logoWidth$space• 󰊬 󰊬 󰊬 •"
 
     for i in $logo
         sleep 0.001
@@ -60,5 +61,4 @@ function ext-fetch --description="Show all gnome extensions enabled."
         echo -e $i | sed 's/-/ /g' | string shorten -m 50 | lolcat -b
     end
 
-    echo -e $logoWidth$space\b\b"└──────────────────────    ─┘" | lolcat -b
 end
