@@ -3,7 +3,15 @@ function viernesdeescritorio
     set fecha (date +%F_%H.%M_%s)
     set archivo "$HOME/Imágenes/Escritorios/$fecha.png"
 
-    cls
+    for i in $argv
+        if test "$i" = -c
+            cls
+        end
+        if test "$i" = -s
+            set captura true
+        end
+    end
+
     yasfetch-fedora
     ext-fetch
     echo
@@ -11,9 +19,9 @@ function viernesdeescritorio
     echo
     echo "#"$dia"DeEscritorio :D" | lolcat -b
     echo
-    sleep 1
-    gnome-screenshot -f "$archivo"
 
-    flatpak run org.gnome.Loupe $archivo &>/dev/null &
-
+    if test "$captura" = true
+        gnome-screenshot -f "$archivo"
+        flatpak run org.gnome.Loupe $archivo &>/dev/null &
+    end
 end
