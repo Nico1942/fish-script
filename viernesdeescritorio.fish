@@ -10,10 +10,16 @@ function viernesdeescritorio
         if test "$i" = -s
             set captura true
         end
+        if test "$i" = --off
+            set arg1 --off
+        end
+        if test "$i" = --all
+            set arg2 --all
+        end
     end
 
-    yasfetch-fedora
-    ext-fetch
+    yasfetch-fedora $arg1
+    ext-fetch $arg1 $arg2
     echo
     yip -no-time
     echo
