@@ -26,7 +26,7 @@ A colection of script and alias that I was created for my fish shell
 * ext-fetch: a fetch for gnome extensions ([NerdFonts](https://www.nerdfonts.com/font-downloads) needed)
 * loop: execute a command n times (author: [razzius](https://github.com/razzius/fish-functions/tree/master/functions))
 * miIP: Show my local IP
-* miIPqr: Show my local IP on qr format (feh needed)
+* miIPqr: Show my local IP on qr format (qrencode needed)
 * miResolucion: Show my screen resolution
 * miWall: resize an image to my current resolution
 * random_name: generate a random user name
