@@ -4,7 +4,9 @@ A colection of script and alias that I was created for my fish shell
 ### Aliases
 
 * actualizar: sudo dnf update
+* bye: chau
 * cfish: cd to fish config directory
+* chau: qq
 * chx: chmod +x
 * chn: chmod -x
 * cls: clear
@@ -14,7 +16,7 @@ A colection of script and alias that I was created for my fish shell
 * py: python3
 * qq: exit
 * uptime: uptime -p
-* viernesdeescritorio
+* viernesdeescritorio: launch 2 fetch (system and extension)
 * vim: nvim
 
 ### Functions
@@ -22,7 +24,6 @@ A colection of script and alias that I was created for my fish shell
 * abrirAqui: open the current directory in nautilus
 * capitalize: uppercase the first letter of a word
 * ext-fetch: a fetch for gnome extensions ([NerdFonts](https://www.nerdfonts.com/font-downloads) needed)
-* ext-fetch-tiny: a simple fetch for gnome extensions ([NerdFonts](https://www.nerdfonts.com/font-downloads) needed)
 * loop: execute a command n times (author: [razzius](https://github.com/razzius/fish-functions/tree/master/functions))
 * miIP: Show my local IP
 * miIPqr: Show my local IP on qr format (feh needed)

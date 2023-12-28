@@ -14,17 +14,16 @@ function ext-fetch --description="Show all gnome extensions enabled."
     set logoWidth "            "
 
     set allExtensions false
-    for i in $argv
-        if test "$i" = --all
-            set extensionsDisabled (gnome-extensions list --disabled | cut -d @ -f1 | sort | string lower)
-            set numDisabled (count $extensionsDisabled)
-            set allExtensions true
-        end
-        if test "$i" = --off
-            set logo ""
-            set logoWidth ""
-            set space "  "
-        end
+
+    if contains -- --all $argv
+        set extensionsDisabled (gnome-extensions list --disabled | cut -d @ -f1 | sort | string lower)
+        set numDisabled (count $extensionsDisabled)
+        set allExtensions true
+    end
+    if contains -- --off $argv
+        set logo ""
+        set logoWidth ""
+        set space "  "
     end
 
     set extensions (gnome-extensions list --enabled | cut -d @ -f 1 | sort)

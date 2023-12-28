@@ -1,21 +1,18 @@
 function viernesdeescritorio
     set dia (capitalize (date +%A))
     set fecha (date +%F_%H.%M_%s)
-    set archivo "$HOME/Imágenes/Escritorios/$fecha.png"
 
-    for i in $argv
-        if test "$i" = -c
-            cls
-        end
-        if test "$i" = -s
-            set captura true
-        end
-        if test "$i" = --off
-            set arg1 --off
-        end
-        if test "$i" = --all
-            set arg2 --all
-        end
+    if contains -- -c $argv
+      cls
+    end
+    if contains -- -s $argv
+        set captura true
+    end
+    if contains -- --off $argv
+      set arg1 --off
+    end
+    if contains -- --all $argv
+      set arg2 --all
     end
 
     yasfetch-fedora $arg1
@@ -27,6 +24,8 @@ function viernesdeescritorio
     echo
 
     if test "$captura" = true
+	mkdir -p (xdg-user-dir PICTURES)/Escritorios
+    	set archivo (xdg-user-dir PICTURES)/Escritorios/$fecha.png
         gnome-screenshot -f "$archivo"
         flatpak run org.gnome.Loupe $archivo &>/dev/null &
     end

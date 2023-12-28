@@ -1,7 +1,7 @@
 #!/usr/bin/fish
 
 if test ! -d $HOME/.trash
-  mkdir $HOME/.trash
+  mkdir -p $HOME/.trash
 end
 
 mv -ib $argv[-1..1] $HOME/.trash/
