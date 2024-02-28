@@ -15,18 +15,28 @@ function viernesdeescritorio
       set arg2 --all
     end
 
-    yasfetch-fedora $arg1
-    ext-fetch $arg1 $arg2
-    echo
-    yip -no-time
-    echo
-    echo "#"$dia"DeEscritorio :D" | lolcat -b
-    echo
+    if contains -- --help -h $argv || contains -- -h $argv
+      echo "Ayuda: 
+      -c:    Limpia la pantalla antes
+      -s:    Hace captura de pantalla
+      --off: Sin logos
+      --all: Mustra también las extensiones instaladas"
+      else
 
-    if test "$captura" = true
-	mkdir -p (xdg-user-dir PICTURES)/Escritorios
-    	set archivo (xdg-user-dir PICTURES)/Escritorios/$fecha.png
-        gnome-screenshot -f "$archivo"
-        flatpak run org.gnome.Loupe $archivo &>/dev/null &
+        yasfetch-fedora $arg1
+        ext-fetch $arg1 $arg2
+        echo
+        yip -no-time
+        echo
+        echo "#"$dia"DeEscritorio :D" | lolcat -b
+        echo
+
+        if test "$captura" = true
+	  mkdir -p (xdg-user-dir PICTURES)/Escritorios
+    	  set archivo (xdg-user-dir PICTURES)/Escritorios/$fecha.png
+          gnome-screenshot -f "$archivo"
+          flatpak run org.gnome.Loupe $archivo &>/dev/null &
+      end
+
     end
 end
