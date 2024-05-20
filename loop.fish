@@ -1,9 +1,7 @@
 function loop --description 'loop <count> <command>'
 
     # Compruebo que el segundo comando no tenga la propia función
-    set noLoop (echo $argv[2] | sed 's/[^loop]//g')
-
-    if test "$noLoop" != loop
+    if not contains "loop" $argv
         for i in (seq 1 $argv[1])
             eval $argv[2..-1]
         end
