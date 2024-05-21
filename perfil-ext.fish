@@ -11,7 +11,7 @@ function help
 end
 
 function disableAll 
-    set extensions (gnome-extensions list --enabled)
+    set -l extensions (gnome-extensions list --enabled)
 
     for ext in $extensions
 	gnome-extensions disable $ext
