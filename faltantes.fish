@@ -1,10 +1,22 @@
-#!/usr/bin/fish
+#!/usr/bin/env fish
 
+# Setting up
+# Colores
 set bold (tput bold 2>/dev/null)
 set red (tput setaf 1 2>/dev/null)
 set cyan (tput setaf 6 2>/dev/null)
 
 set reset (tput sgr0 2>/dev/null)
+
+# Funciones
+
+function mostrarArchivo
+  if [ -e "$argv" ]
+    cat "$argv"
+  else
+    echo $red"No hay datos"$reset
+  end
+end
 
 if [ "$argv" != "--nada" ]
   if [ -e ayer.txt ]
@@ -30,8 +42,9 @@ if [ -e nuevo.txt ]
   rm nuevo.txt
 end
 
-set hoy (cat hoy.txt | sed 's/\t.*//g')
-set ayer (cat ayer.txt | sed 's/\t.*//g')
+# Elimino tabuladores y línes vacías
+set hoy (cat hoy.txt | sed 's/\t.*//g; s/^$//g')
+set ayer (cat ayer.txt | sed 's/\t.*//g; s/^$//g')
 
 for i in $ayer
   if contains $i $hoy
@@ -52,15 +65,15 @@ cls
 
 echo $bold"Faltantes:
 ==========$reset"
-cat hoy.txt
+mostrarArchivo hoy.txt
 echo
 echo $bold"Lo que volvió"
 echo "=============$reset$cyan"
-cat vuelve.txt
+mostrarArchivo vuelve.txt
 echo $reset
 echo $bold"Nuevos faltantes"
 echo "================$reset$red"
-cat nuevo.txt
+mostrarArchivo nuevo.txt
 echo
 cal --sunday -3 -w
 echo
