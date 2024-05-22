@@ -14,7 +14,7 @@ function mostrarArchivo
   if [ -e "$argv" ]
     cat "$argv"
   else
-    echo $red"No hay datos"$reset
+    echo $red$bold"No hay datos"$reset
   end
 end
 
@@ -30,10 +30,6 @@ if [ "$argv" != "--nada" ]
   nvim hoy.txt
 end
 
-if [ -e sigue.txt ]
-  rm sigue.txt
-end
-
 if [ -e vuelve.txt ]
   rm vuelve.txt
 end
@@ -42,21 +38,20 @@ if [ -e nuevo.txt ]
   rm nuevo.txt
 end
 
-# Elimino tabuladores y línes vacías
-set hoy (cat hoy.txt | sed 's/\t.*//g; s/^$//g')
-set ayer (cat ayer.txt | sed 's/\t.*//g; s/^$//g')
+# Saco solo los códigos de los sku aprovechando que después del código
+# hay un tabulador
+set hoy (cat hoy.txt | sed 's/\t.*//g')
+set ayer (cat ayer.txt | sed 's/\t.*//g')
 
 for i in $ayer
-  if contains $i $hoy
-    grep "$i" hoy.txt | sed 's/^/> /g' >> sigue.txt
-  else
-    grep "$i" ayer.txt | sed 's/^/👍️ /g; s/\t/ /g' >> vuelve.txt
+  if not contains $i $hoy
+    grep "$i" ayer.txt | sed 's/^/🟢 /g; s/\t/ /g' >> vuelve.txt
   end
 end
 
 for i in $hoy
   if not contains $i $ayer
-    grep "$i" hoy.txt | sed 's/^/👎️ /g; s/\t/ /g' >> nuevo.txt
+    grep "$i" hoy.txt | sed 's/^/🔴 /g; s/\t/ /g' >> nuevo.txt
   end
 end
 
@@ -64,16 +59,17 @@ end
 cls
 
 echo $bold"Faltantes:
-==========$reset"
+=========="$reset
 mostrarArchivo hoy.txt
 echo
 echo $bold"Lo que volvió"
-echo "=============$reset$cyan"
+echo "============="$reset$cyan
 mostrarArchivo vuelve.txt
 echo $reset
 echo $bold"Nuevos faltantes"
-echo "================$reset$red"
+echo "================"$reset$red
 mostrarArchivo nuevo.txt
+echo
 echo
 cal --sunday -3 -w
 echo
