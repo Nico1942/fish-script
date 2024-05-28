@@ -1,6 +1,25 @@
 #!/usr/bin/env fish
 
-set option "good-looking" "minimal" "minimal2" "no"
+set -l option "good-looking" "minimal" "minimal2" "no"
+
+## Perfiles ##
+
+set -l goodLook "awesome-tiles@velitasali.com"\
+		"blur-my-shell@aunetx"\
+		"compiz-windows-effect@hermes83.github.com"\
+		"custom-accent-colors@demiskp"\
+		"just-perfection-desktop@just-perfection"\
+		"pano@elhan.io"\
+		"user-theme@gnome-shell-extensions.gcampax.github.com"
+
+set -l minimal "awesome-tiles@velitasali.com" "just-perfection-desktop@just-perfection" "pano@elhan.io"
+
+set -l minimal2 "awesome-tiles@velitasali.com"\
+	        "just-perfection-desktop@just-perfection"\
+		"pano@elhan.io"\
+		"compiz-windows-effect@hermes83.github.com"\
+		"user-theme@gnome-shell-extensions.gcampax.github.com"
+
 
 function help
    echo "
@@ -8,6 +27,11 @@ function help
      good-looking
      minimal
      no"
+end
+
+function nombrar
+   set -l nombre (echo $argv | sed 's/\@.*//g; s/-/ /g')
+   echo $nombre
 end
 
 function disableAll 
@@ -18,9 +42,8 @@ function disableAll
 	gnome-extensions disable $ext
 	sleep 0.05
     end
-    echo "--- ||| ---"
+    echo "--- /|\ ---"
 end
-
 
 function needed
   
@@ -33,56 +56,29 @@ function needed
   end
 end
 
-function nombrar
-   set -l nombre (echo $argv | sed 's/\@.*//g; s/-/ /g')
-   echo $nombre
-end
 
 
-function goodLooking
-    set -l extensions "arcmenu@arcmenu.com" "awesome-tiles@velitasali.com" "blur-my-shell@aunetx" "compiz-windows-effect@hermes83.github.com" "just-perfection-desktop@just-perfection" "pano@elhan.io" "user-theme@gnome-shell-extensions.gcampax.github.com"
+function main
 
-    if [ needed $extesions ]
-       for ext in $extensions
+       for ext in $argv
 	  echo "Activando $(nombrar $ext)"
 	  gnome-extensions enable $ext
 	  sleep 0.05
        end
-    end
 
-end
-
-function minimal
-    set -l extensions "awesome-tiles@velitasali.com" "just-perfection-desktop@just-perfection" "pano@elhan.io"
-
-    for ext in $extensions
-	echo "Activando $(nombrar $ext)"
-	gnome-extensions enable $ext
-	sleep 0.05
-    end
-end
-
-function minimal2
-    set -l extensions "compiz-windows-effect@hermes83.github.com" "user-theme@gnome-shell-extensions.gcampax.github.com"
-    minimal
-    for ext in $extensions
-	echo "Activando $(nombrar $ext)"
-	gnome-extensions enable $ext
-	sleep 0.05
-    end
 end
 
 if contains $argv $option
   disableAll
   switch "$argv"
     case "good-looking"
-	    goodLooking
+	    main $goodLook
     case "minimal"
-	minimal
+	main $minimal
     case "minimal2"
-	minimal2
+	main $minimal2
     case "no"
-      disableAll
+      echo "Todo desactivado. 🤓"
   end
 else
   help
