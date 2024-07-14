@@ -1,3 +1,7 @@
 function cfish --wraps='cd ~/.config/fish/' --description 'alias cfish cd ~/.config/fish/'
-  cd ~/.config/fish/functions/ $argv; 
+  if contains -- -u $argv
+	cd ~/bin/fish-script/
+  else
+  	cd ~/.config/fish/functions/ $argv; 
+  end
 end

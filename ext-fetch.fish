@@ -1,4 +1,5 @@
 function ext-fetch --description="Show all gnome extensions enabled."
+    set bold "\033[1;37m" 
 
     # Space between logo and text
     set space "     "
@@ -25,12 +26,19 @@ function ext-fetch --description="Show all gnome extensions enabled."
         set logoWidth ""
         set space "  "
     end
+    if contains -- --space $argv
+	set -l index (contains -i -- --space $argv)
+	set -l index (math $index + 1)
+	for i in (seq $argv[$index])
+	    set space $space " "
+	end
+   end
 
     set extensions (gnome-extensions list --enabled | cut -d @ -f 1 | sort)
     set numExtensions (count $extensions)
 
     # Setup title
-    set logo[1] "$logo[1]$space\033[1;37mextensions [$numExtensions]"
+    set logo[1] "$logo[1]$space$bold""extensions [$numExtensions]"
 
     set logoHeight (count $logo)
     set index 2
@@ -47,7 +55,7 @@ function ext-fetch --description="Show all gnome extensions enabled."
 
     if test "$allExtensions" = true
         set index (math $index + 1)
-        set logo[$index] "$logo[$index]$space\033[1;37mdisabled [$numDisabled]"
+	set logo[$index] "$logo[$index]$(if test $index -gt $logoHeight; echo $logoWidth; end)$space$bold""disabled [$numDisabled]"
         set index (math $index + 1)
 
         for i in $extensionsDisabled
