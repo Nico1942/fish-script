@@ -1,5 +1,7 @@
 function fish-install --description 'install a fish script in fish functions directory'
-	set fish-functions "~/.config/fish/functions/"
+	set fish_functions ~/.config/fish/functions
+	
+	echo $argv
 
-	symlink $argv $fish-functions
+	symlink $argv $fish_functions
 end
