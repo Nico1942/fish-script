@@ -7,7 +7,7 @@ function yip
     set TIME_SLOW 0.3
     set TIME_FAST 0.07
 
-    if test "$argv" = -no-time
+    if contains -- -no-time $argv
         set TIME_FAST 0
         set TIME_SLOW 0
     end
@@ -16,8 +16,7 @@ function yip
     set CIEN (date +%j -d "Dec 31")
     set PORCENTAJE (math -s0 (math 100/$CIEN) \* $HOY)
 
-    set_color -o
-    set_color white
+    set_color -o white
     echo "Progreso anual:"
 
     set BARRA (math -s0 $PORCENTAJE / 10)
