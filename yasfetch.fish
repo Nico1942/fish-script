@@ -27,7 +27,7 @@ set de (toLower $de)
 set os (toLower $os)
 
 if test $shell = "fish"
-  set -l $shell (fish -v | sed "s/, version//")
+  set $shell (fish -v | sed "s/, version//")
 end
 
 
