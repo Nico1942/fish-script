@@ -29,6 +29,7 @@ A collection of script and alias that I was created for my fish shell
 * miIPqr: Show my local IP on qr format (qrencode needed)
 * miResolucion: Show my screen resolution
 * miWall: resize an image to my current resolution
+* ordenarApps: organized gnome app grid by name ([Gnome extension needed](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/))
 * perfil-ext: Enable/Disable extension to diferent profiles.
 * random_name: generate a random user name
 * symlink: create simbolic link (author: [razzius](https://github.com/razzius/fish-functions/tree/master/functions))
