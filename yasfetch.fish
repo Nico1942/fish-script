@@ -91,5 +91,6 @@ set logo[9] $logo[9]$lc"$c6󰮯 • $c5󰊠  $c3󰊠  $c1󰊠  $c7󰊠"
 for i in (seq 9)
 	echo $logo[$i]
 end
+echo
 
 end

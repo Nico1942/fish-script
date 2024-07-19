@@ -23,7 +23,7 @@ function viernesdeescritorio
       --all: Mustra también las extensiones instaladas"
       else
 
-        yasfetch-fedora $arg1
+        yasfetch $arg1
         ext-fetch $arg1 $arg2
         echo
         yip -no-time
