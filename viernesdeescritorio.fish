@@ -1,6 +1,7 @@
 function viernesdeescritorio
     set dia (capitalize (date +%A))
     set fecha (date +%F_%H.%M_%s)
+    set captura false
 
     if contains -- -c $argv
       cls
@@ -31,7 +32,7 @@ function viernesdeescritorio
         echo "#"$dia"DeEscritorio :D" | lolcat -b
         echo
 
-        if test "$captura" = true
+        if $captura
 	  mkdir -p (xdg-user-dir PICTURES)/Escritorios
     	  set archivo (xdg-user-dir PICTURES)/Escritorios/$fecha.png
           gnome-screenshot -f "$archivo"
