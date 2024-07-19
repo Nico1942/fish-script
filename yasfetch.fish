@@ -25,8 +25,8 @@ set host (toLower $host)
 set de (toLower $de)
 set os (toLower $os)
 
-if test $shell = "fish"
-  set $shell (fish -v | sed 's/, version/ /')
+if test "$shell" = "fish"
+  set shell (fish -v | sed 's/, version//')
 end
 
 
@@ -75,7 +75,7 @@ else
   set logo[6] "$c1 FF"$c2"F"$c1"FF"$c2"F"$c1"FFFFFF    "
   set logo[7] "$c1 FFF"$c2"FFF"$c1"FFFFF     "
   set logo[8] "$c1 FFFFFFFFF       "
-  set logo[9] "                  "
+  set logo[9] "                 "
 end
 
 set logo[1] $logo[1]$nc"us $ic• $user"
@@ -86,7 +86,7 @@ set logo[5] $logo[5]$lc"de $ic• $de"
 set logo[6] $logo[6]$lc"sh $ic• $shell"
 set logo[7] $logo[7]$lc"se $ic• $session"
 set logo[8] $logo[8]$lc"up $ic• $uptime"
-set logo[9] $logo[9]$lc"$c6󰮯 • $c5󰊠  $c3󰊠  $c1󰊠  $c7󰊠"
+set logo[9] $logo[9]$lc" $c6󰮯 • $c5󰊠  $c3󰊠  $c1󰊠  $c7󰊠"
 
 for i in (seq 9)
 	echo $logo[$i]
