@@ -23,7 +23,7 @@ function ext-fetch --description="Show all gnome extensions enabled."
     set allExtensions false
 
     if contains -- --all $argv
-        set extensionsDisabled (gnome-extensions list --disabled | cut -d @ -f1 | sort | string lower)
+        set extensionsDisabled (gnome-extensions list -d --disabled | grep 'Nombre: ' | sed 's/  Nombre: //g' | sort | string lower)
         set numDisabled (count $extensionsDisabled)
         set allExtensions true
     end
@@ -40,7 +40,8 @@ function ext-fetch --description="Show all gnome extensions enabled."
 	end
    end
 
-    set extensions (gnome-extensions list --enabled | cut -d @ -f 1 | sort)
+   #    set extensions (gnome-extensions list --enabled | cut -d @ -f 1 | sort)
+    set extensions (gnome-extensions list -d --enabled | grep 'Nombre: ' | sed 's/  Nombre: //g' | sort | string lower)
     set numExtensions (count $extensions)
 
     # Setup title
@@ -83,7 +84,7 @@ function ext-fetch --description="Show all gnome extensions enabled."
 
     for i in $logo
         sleep 0.001
-        echo -e $i | sed 's/-/ /g' 
+        echo -e $i
     end
 
 end
