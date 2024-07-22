@@ -88,6 +88,7 @@ set logo[7] $logo[7]$lc"se $ic• $session"
 set logo[8] $logo[8]$lc"up $ic• $uptime"
 set logo[9] $logo[9]$lc" $c6󰮯 • $c5󰊠  $c3󰊠  $c1󰊠  $c7󰊠"
 
+echo
 for i in (seq 9)
 	echo $logo[$i]
 end
