@@ -8,7 +8,7 @@ if contains -- --off $argv
 end
 
 function toLower
-  echo $argv | tr '[:upper:]' '[:lower:]'
+  echo $argv | string lower
 end
 
 set -l user (whoami)
