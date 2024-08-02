@@ -35,7 +35,7 @@ function viernesdeescritorio
         if $captura
 	  mkdir -p (xdg-user-dir PICTURES)/Escritorios
     	  set archivo (xdg-user-dir PICTURES)/Escritorios/$fecha.png
-          gnome-screenshot -f "$archivo"
+          gnome-screenshot -p -f "$archivo"
           flatpak run org.gnome.Loupe $archivo &>/dev/null &
       end
 
