@@ -1,54 +1,49 @@
-# Defined in - @ line 47
+# Defined in - @ line 42
+
+set MIN 2
+set MAX 10
 
 function help 
-  echo "Se debe ingresar el número de letras del nombre."
+  echo "Se debe ingresar el número de letras del nombre.
+Entre $MIN y $MAX"
   echo "Usar -r para nombre aleatorio."
 end
 
 function main
   set VOCALES a e i o u
   set CONSONANTES b bl br bs bv c cl cr ct d dr f fl fr g gr h j k l ll m mn n ñ p pl pr qu r rr s sl st sm t tr tl v w x y z
- # set CONSONANTES b c d f g h j k l m n ñ p qu r s t v w x y z
+ # set CONSONANTES b c d f g h j k l m n ñ p qu r s t v w x y z bl br bs bv cl cr ct dr fl fr gr ll mn pl pr rr sl st sm tr tl
 
-  set LARGO $argv[1] 
-
-  if test $LARGO -gt 10
-    set LARGO 10
-    echo "Tamaño máximo: $LARGO."
-  end
-
-  if test $LARGO -lt 2
-    set LARGO 2
-    echo "Tamaño mínimo: $LARGO."
-  end
+  set LARGO $argv
 
   set NOMBRE ""
 
 
-  set LETRA (random 1 2)
+  set LETRA (random choice vocal consonante)
 
   for i in (seq 1 $LARGO)
-    if test $LETRA = 1
+    if test $LETRA = consonante 
       set INDICE (random 1 (count $CONSONANTES))
       set NOMBRE (echo $NOMBRE$CONSONANTES[$INDICE])
-      set LETRA 2
+      set LETRA vocal
     else
       set INDICE (random 1 (count $VOCALES))
       set NOMBRE (echo $NOMBRE$VOCALES[$INDICE])
-      set LETRA 1
+      set LETRA consonante
     end
   end
 
-  set NOMBRE (echo $NOMBRE | sed 's/[^_-]*/\u&/g')
+  set NOMBRE (capitalize $NOMBRE)
 
   echo "Tu nombre es $NOMBRE"
 
 end
 
 function random_name
-  if string match -qr '^[0-9]+$' $argv
+  set LIMITE (seq 2 10)
+  if contains -- $argv $LIMITE
     main $argv[1]
-  else if [ $argv = "-r" ]
+  else if contains -- -r $argv 
     main (random 2 10)
   else
     help
