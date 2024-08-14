@@ -9,3 +9,5 @@ else
   gnome-extensions enable Bluetooth-Battery-Meter@maniacx.github.com
   echo "Activando extensión."
 end
+
+ext-fetch --off
