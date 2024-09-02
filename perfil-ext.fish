@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-set -l option "minimal" "minimal-look" "good-look" "no"
+set -l option "minimal" "minimal-look" "good-look" "cafe" "blue" "no"
 
 set extensions (gnome-extensions list --enabled)
 
@@ -20,6 +20,11 @@ set -l goodLook $minimalLook\
 		"custom-accent-colors@demiskp"\
 		"user-theme@gnome-shell-extensions.gcampax.github.com"
 
+set -l cafe $minimal\
+	    "caffeine@patapon.info"
+
+set -l blue "Bluetooth-Battery-Meter@maniacx.github.com"
+
 
 ## Auxiliares ##
 
@@ -27,6 +32,8 @@ function help
    echo "
    Opciones:
      minimal
+     cafe
+     blue
      minimal-look
      good-look
      no"
@@ -82,6 +89,11 @@ if contains $argv $option
     case "minimal"
 	disableAll $minimal
 	main $minimal
+    case "cafe"
+	disableAll $cafe
+	main $cafe
+    case "blue"
+	main $blue
     case "minimal-look"
 	disableAll $minimalLook
 	main $minimalLook
