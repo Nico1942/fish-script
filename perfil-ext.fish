@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-set -l option "minimal" "minimal-look" "good-look" "cafe" "blue" "no"
+set -l option "minimal" "minimal-look" "good-look" "cafe" "blue" "mouse" "no"
 
 set extensions (gnome-extensions list --enabled)
 
@@ -9,7 +9,6 @@ set extensions (gnome-extensions list --enabled)
 set -l minimal "awesome-tiles@velitasali.com"\
 	       "just-perfection-desktop@just-perfection"\
 	       "pano@elhan.io"\
-	       "tilingshell@ferrarodomenico.com"
 
 set -l minimalLook $minimal\
 		"background-logo@fedorahosted.org"
@@ -20,11 +19,13 @@ set -l goodLook $minimalLook\
 		"custom-accent-colors@demiskp"\
 		"user-theme@gnome-shell-extensions.gcampax.github.com"
 
-set -l cafe $minimal\
-	    "caffeine@patapon.info"
+### Una sola extensión
+
+set -l cafe "caffeine@patapon.info"
 
 set -l blue "Bluetooth-Battery-Meter@maniacx.github.com"
 
+set -l mouse "tilingshell@ferrarodomenico.com"
 
 ## Auxiliares ##
 
@@ -32,10 +33,11 @@ function help
    echo "
    Opciones:
      minimal
-     cafe
-     blue
      minimal-look
      good-look
+     cafe
+     blue
+     mouse
      no"
 end
 
@@ -89,17 +91,18 @@ if contains $argv $option
     case "minimal"
 	disableAll $minimal
 	main $minimal
-    case "cafe"
-	disableAll $cafe
-	main $cafe
-    case "blue"
-	main $blue
     case "minimal-look"
 	disableAll $minimalLook
 	main $minimalLook
     case "good-look"
         disableAll $goodLook
         main $goodLook
+    case "cafe"
+	main $cafe
+    case "blue"
+	main $blue
+    case "mouse"
+	main $mouse
     case "no"
 	disableAll
 	echo "Todo desactivado. 🤓"
