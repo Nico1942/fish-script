@@ -22,21 +22,21 @@ function viernesdeescritorio
       -s:    Hace captura de pantalla
       --off: Sin logos
       --all: Mustra también las extensiones instaladas"
-      else
+    else
 
-        yasfetch $arg1
-        ext-fetch $arg1 $arg2
-        echo
-        yip -no-time
-        echo
-        echo "#"$dia"DeEscritorio :D" | lolcat -b
-        echo
+      yasfetch $arg1
+      ext-fetch $arg1 $arg2
+      echo
+      yip -no-time
+      echo
+      echo "#"$dia"DeEscritorio :D" | lolcat -b
+      echo
 
-        if $captura
-	  mkdir -p (xdg-user-dir PICTURES)/Escritorios
-    	  set archivo (xdg-user-dir PICTURES)/Escritorios/$fecha.png
-          gnome-screenshot -p -f "$archivo"
-          flatpak run org.gnome.Loupe $archivo &>/dev/null &
+      if $captura
+        mkdir -p (xdg-user-dir PICTURES)/Escritorios
+        set archivo (xdg-user-dir PICTURES)/Escritorios/$fecha.png
+        gnome-screenshot -p -f "$archivo"
+        flatpak run org.gnome.Loupe $archivo &>/dev/null &
       end
 
     end
