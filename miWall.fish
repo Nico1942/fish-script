@@ -18,7 +18,7 @@ end
 
 function miWall
   if test (count $argv) = 2
-      convert $argv[1] -resize $RESOLUTION $argv[2];
+      magick $argv[1] -resize $RESOLUTION $argv[2];
   else
     if test (count $argv) = 1
       unArgumento $argv
