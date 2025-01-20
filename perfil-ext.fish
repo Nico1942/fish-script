@@ -8,7 +8,8 @@ set extensions (gnome-extensions list --enabled)
 
 set -l minimal "awesome-tiles@velitasali.com"\
 	       "just-perfection-desktop@just-perfection"\
-	       "pano@elhan.io"\
+	       "pano@elhan.io"
+#               "tilingshell@ferrarodomenico.com"
 
 set -l minimalLook $minimal\
 		"background-logo@fedorahosted.org"

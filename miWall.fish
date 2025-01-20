@@ -13,12 +13,12 @@ function unArgumento
   set EXT (echo $argv | awk -F. '{ print $NF }')
   set FILE (echo $argv | basename $argv .$EXT )
   set OUTPUT (echo $FILE'_mod.'$EXT)
-  convert $argv -resize $RESOLUTION $OUTPUT
+  magick convert $argv -resize $RESOLUTION^ -gravity center -crop $RESOLUTION $OUTPUT
 end
 
 function miWall
   if test (count $argv) = 2
-      magick $argv[1] -resize $RESOLUTION $argv[2];
+      magick convert $argv[1] -resize $RESOLUTION $argv[2];
   else
     if test (count $argv) = 1
       unArgumento $argv
