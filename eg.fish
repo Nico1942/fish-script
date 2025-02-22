@@ -1,3 +1,3 @@
-function ea --wraps='exa -a' --description 'alias ea exa -a'
-  eza --long --header --git --icons $argv; 
+function eg --wraps='e --long --header --git' --description 'eza git mode'
+  e --long --header --git $argv
 end

@@ -1,3 +1,3 @@
-function e --wraps=exa --description 'alias e exa'
-  eza --icons $argv; 
+function e --wraps=exa --description 'alias e eza'
+  eza --color=always --icons --group-directories-first $argv; 
 end
