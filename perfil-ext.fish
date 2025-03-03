@@ -8,12 +8,13 @@ set extensions (gnome-extensions list --enabled)
 
 set -l minimal "awesome-tiles@velitasali.com"\
 	       "just-perfection-desktop@just-perfection"\
-	       "pano@elhan.io"
+	       "pano@elhan.io"\
+         "printers@linux-man.org"
 
 set -l minimalLook $minimal\
 		"background-logo@fedorahosted.org"\
     "burn-my-windows@schneegans.github.com"\
-    "desktop-cube@schneegans.github"\
+    "desktop-cube@schneegans.github.com"\
     "panel-corners@aunetx"
 
 set -l goodLook $minimalLook\
