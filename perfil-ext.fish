@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-set -l option "minimal" "minimal-look" "good-look" "cafe" "blue" "mouse" "no"
+set option "minimal" "minimal-look" "good-look" "cafe" "blue" "mouse" "no"
 
 set extensions (gnome-extensions list --enabled)
 
@@ -9,16 +9,17 @@ set extensions (gnome-extensions list --enabled)
 set -l minimal "awesome-tiles@velitasali.com"\
 	       "just-perfection-desktop@just-perfection"\
 	       "pano@elhan.io"
-#               "tilingshell@ferrarodomenico.com"
 
 set -l minimalLook $minimal\
-		"background-logo@fedorahosted.org"
-#		"compiz-windows-effect@hermes83.github.com"
+		"background-logo@fedorahosted.org"\
+    "burn-my-windows@schneegans.github.com"\
+    "desktop-cube@schneegans.github"\
+    "panel-corners@aunetx"
 
 set -l goodLook $minimalLook\
-		"blur-my-shell@aunetx"\
-		"custom-accent-colors@demiskp"\
-		"user-theme@gnome-shell-extensions.gcampax.github.com"
+    "blur-my-shell@aunetx"\
+    "user-theme@gnome-shell-extensions.gcampax.github.com"\
+    "compiz-windows-effect@hermes83.github.com"
 
 ### Una sola extensión
 
@@ -32,14 +33,10 @@ set -l mouse "tilingshell@ferrarodomenico.com"
 
 function help
    echo "
-   Opciones:
-     minimal
-     minimal-look
-     good-look
-     cafe
-     blue
-     mouse
-     no"
+   Opciones:"
+   for i in $option
+    echo "Perfil: $i"
+  end
 end
 
 function nombrar
