@@ -9,12 +9,12 @@ function yip
 
     ## BARRA
     set SIZE 20
-    set STYLE 1
+    set STYLE (random 1 4)
 
     switch $STYLE
         case 1
             set BODY "-"
-            set HEAD ">"
+            set HEAD "⟶"
             set TO_FILL "•"
         case 2
             set BODY "•"
