@@ -18,12 +18,12 @@ function yip
             set TO_FILL "•"
         case 2
             set BODY "•"
-            set HEAD "•"
-            set TO_FILL "•"
+            set HEAD "$BODY"
+            set TO_FILL "$BODY"
         case 3
             set BODY "⣿"
-            set HEAD "⣿"
-            set TO_FILL "⣿"
+            set HEAD "$BODY"
+            set TO_FILL "$BODY"
         case 4
             set BODY "-"
             set HEAD "⊣"
