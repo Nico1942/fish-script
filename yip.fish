@@ -7,6 +7,29 @@ function yip
     set TIME_SLOW 0.3
     set TIME_FAST 0.07
 
+    ## BARRA
+    set SIZE 20
+    set STYLE 1
+
+    switch $STYLE
+        case 1
+            set BODY "-"
+            set HEAD ">"
+            set TO_FILL "•"
+        case 2
+            set BODY "•"
+            set HEAD "•"
+            set TO_FILL "•"
+        case 3
+            set BODY "⣿"
+            set HEAD "⣿"
+            set TO_FILL "⣿"
+        case 4
+            set BODY "-"
+            set HEAD "⊣"
+            set TO_FILL "-"
+    end
+
     if contains -- -no-time $argv
         set TIME_FAST 0
         set TIME_SLOW 0
@@ -19,21 +42,24 @@ function yip
     set_color -o white
     echo "Progreso anual:"
 
-    set BARRA (math -s0 $PORCENTAJE / 10)
+    set BARRA (math -s0 $PORCENTAJE / (math 100 / $SIZE))
 
     set_color -o $FRONT_COLOR
     for i in (seq 1 $BARRA)
         sleep $TIME_SLOW
-        echo -en "•"
-        #    echo -en "⣿"
+        if test $i != "$BARRA"
+            echo -n "$BODY"
+        else
+            echo -n "$HEAD"
+        end
     end
 
     sleep $TIME_SLOW
 
     set_color $BACK_COLOR
-    for i in (seq 1 (math 10 - $BARRA))
+    for i in (seq 1 (math $SIZE - $BARRA))
         sleep $TIME_FAST
-        echo -en •
+        echo -n "$TO_FILL"
     end
 
     sleep $TIME_FAST
