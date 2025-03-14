@@ -9,17 +9,19 @@ set extensions (gnome-extensions list --enabled)
 set -l minimal "awesome-tiles@velitasali.com"\
 	       "just-perfection-desktop@just-perfection"\
 	       "pano@elhan.io"\
-         "printers@linux-man.org"
+	       "printers@linux-man.org"\
+           "Vitals@CoreCoding.com"
 
 set -l minimalLook $minimal\
-		"background-logo@fedorahosted.org"\
     "burn-my-windows@schneegans.github.com"\
-    "desktop-cube@schneegans.github.com"\
-    "panel-corners@aunetx"
+    "panel-corners@aunetx" \
+    "rounded-window-corner@fxgn"
+#"background-logo@fedorahosted.org"\
 
 set -l goodLook $minimalLook\
     "blur-my-shell@aunetx"\
     "user-theme@gnome-shell-extensions.gcampax.github.com"\
+    "desktop-cube@schneegans.github.com"\
     "compiz-windows-effect@hermes83.github.com"
 
 ### Una sola extensión

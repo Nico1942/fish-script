@@ -9,12 +9,9 @@ function viernesdeescritorio
     if contains -- -s $argv
         set captura true
     end
-    if contains -- --off $argv
-      set arg1 --off
-    end
-    if contains -- --all $argv
-      set arg2 --all
-    end
+
+    set arg1 (contains -- --off $argv: and echo "--off")
+    set arg2 (contains -- --all $argv: and echo "--all")
 
     if contains -- --help -h $argv || contains -- -h $argv
       echo "Ayuda: 
