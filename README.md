@@ -35,5 +35,6 @@ A collection of script and alias that I was created for my fish shell
 * random_name: generate a random user name
 * symlink: create simbolic link (author: [razzius](https://github.com/razzius/fish-functions/tree/master/functions))
 * string-empy: needed for symlink (author: [razzius](https://github.com/razzius/fish-functions/tree/master/functions))
+* vidTomiyoo: convert a video in to miyoo mini format (ffmpeg needed)
 * yasfetch: yes, another simple fetch [yasfetch](https://github.com/Nico1942/yasfetch)
 * yip: Year in progress, just for fun
