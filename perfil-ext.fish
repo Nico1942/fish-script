@@ -1,28 +1,29 @@
 #!/usr/bin/env fish
 
-set option "minimal" "minimal-look" "good-look" "cafe" "blue" "mouse" "no"
+set option "basic" "minimal" "minimal-look" "good-look" "cafe" "blue" "mouse" "no"
 
 set extensions (gnome-extensions list --enabled)
 
 ## Perfiles ##
 
-set -l minimal "awesome-tiles@velitasali.com"\
-	       "just-perfection-desktop@just-perfection"\
+set -l basic "awesome-tiles@velitasali.com"\
+           "just-perfection-desktop@just-perfection"
+
+set -l minimal $basic\
 	       "pano@elhan.io"\
 	       "printers@linux-man.org"\
-           "Vitals@CoreCoding.com"
+           "gsconnect@andyholmes.github.io"
 
 set -l minimalLook $minimal\
     "burn-my-windows@schneegans.github.com"\
-    "panel-corners@aunetx" \
-    "rounded-window-corner@fxgn"
+    "panel-corners@aunetx"
 #"background-logo@fedorahosted.org"\
 
 set -l goodLook $minimalLook\
     "blur-my-shell@aunetx"\
-    "user-theme@gnome-shell-extensions.gcampax.github.com"\
     "desktop-cube@schneegans.github.com"\
-    "compiz-windows-effect@hermes83.github.com"
+    "compiz-windows-effect@hermes83.github.com"\
+    "dynamic-panel@velhlkj.com"
 
 ### Una sola extensión
 
@@ -74,41 +75,44 @@ end
 
 function main
 
-       for ext in $argv
-	  if not contains $ext $extensions
-	    echo "Activando $(nombrar $ext)"
-	    gnome-extensions enable $ext
-	    sleep 0.15
-          end
-       end
+    for ext in $argv
+	    if not contains $ext $extensions
+	       echo "Activando $(nombrar $ext)"
+	       gnome-extensions enable $ext
+	       sleep 0.15
+        end
+    end
 
-       echo
-       ext-fetch --off
+    echo
+    ext-fetch --off
 
 end
 
 if contains $argv $option
   switch "$argv"
+    case "basic"
+        disableAll $basic
+        main $basic
     case "minimal"
-	disableAll $minimal
-	main $minimal
+	   disableAll $minimal
+	   main $minimal
     case "minimal-look"
-	disableAll $minimalLook
-	main $minimalLook
+	   disableAll $minimalLook
+	   main $minimalLook
     case "good-look"
         disableAll $goodLook
         main $goodLook
     case "cafe"
-	main $cafe
+	   main $cafe
     case "blue"
-	main $blue
+	   main $blue
     case "mouse"
-	main $mouse
+	   main $mouse
     case "no"
-	disableAll
-	echo "Todo desactivado. 🤓"
-	echo
-	ext-fetch --off
+	   disableAll
+	   echo "Todo desactivado. 🤓"
+	   echo
+	   ext-fetch --off
   end
 else
   help
