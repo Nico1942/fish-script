@@ -12,7 +12,7 @@ set -l basic "tilingshell@ferrarodomenico.com"\
 
 set -l minimal $basic\
 	       "printers@linux-man.org"\
-           "clipboard-indicator@tudmotu.com"
+           "clipboard-indicator@tudmotu.com"\
            "gsconnect@andyholmes.github.io"
            #"pano@elhan.io"\
 
