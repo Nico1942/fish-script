@@ -22,7 +22,6 @@ A collection of script and alias that I was created for my fish shell
 ### Functions
 
 * abrirAqui: open the current directory in nautilus
-* bluetooth: toogle Bluetooth extension ([Bluetooth Batttery Meter needed}](https://extensions.gnome.org/extension/6670/bluetooth-battery-meter/))
 * capitalize: uppercase the first letter of a word
 * ext-fetch: a fetch for gnome extensions ([NerdFonts](https://www.nerdfonts.com/font-downloads) needed)
 * loop: execute a command n times (author: [razzius](https://github.com/razzius/fish-functions/tree/master/functions))
@@ -35,6 +34,8 @@ A collection of script and alias that I was created for my fish shell
 * random_name: generate a random user name
 * symlink: create simbolic link (author: [razzius](https://github.com/razzius/fish-functions/tree/master/functions))
 * string-empy: needed for symlink (author: [razzius](https://github.com/razzius/fish-functions/tree/master/functions))
+* toggle-bluetooth: toogle Bluetooth extension ([Bluetooth Batttery Meter needed}](https://extensions.gnome.org/extension/6670/bluetooth-battery-meter/))
+* toggle-mouse: toogle Tiling Shell extension ([Tiling Shell](https://extensions.gnome.org/extension/7065/tiling-shell/))
 * vidTomiyoo: convert a video in to miyoo mini format (ffmpeg needed)
 * yasfetch: yes, another simple fetch [yasfetch](https://github.com/Nico1942/yasfetch)
 * yip: Year in progress, just for fun
