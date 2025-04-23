@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-set extension "Bluetooth-Battery-Meter@maniacx.github.com"
+set extension "tilingshell@ferrarodomenico.com"
 set nombre (gnome-extensions info $extension | awk -F ': ' '/Nombre/ {print $2}')
 set estado (gnome-extensions info $extension | awk '/ Estado: / {print $2}') 
 
