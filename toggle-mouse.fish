@@ -6,8 +6,11 @@ set estado (gnome-extensions info $extension | awk '/ Estado: / {print $2}')
 
 if [ "$estado" = "ACTIVE" ]
   gnome-extensions disable $extension
-  echo "Desactivando extensión $nombre"
+  set estado_txt "desactivada"
 else
   gnome-extensions enable $extension
-  echo "Activando extensión $nombre"
+  set estado_txt "activada"
 end
+
+notify-send "Extension $nombre $estado_txt"
+echo "Extension $nombre $estado_txt"
