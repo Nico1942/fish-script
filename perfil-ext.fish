@@ -6,24 +6,26 @@ set extensions (gnome-extensions list --enabled)
 
 ## Perfiles ##
 
-set -l basic "tilingshell@ferrarodomenico.com"\
+set -l basic "awesome-tiles@velitasali.com"\
             "just-perfection-desktop@just-perfection"
-            # "awesome-tiles@velitasali.com"\
+# tilingshell@ferrarodomenico.com"
+            
 
 set -l minimal $basic\
 	       "printers@linux-man.org"\
-           "clipboard-indicator@tudmotu.com"\
+           "clipboard-history@alexsaveau.dev"\
            "gsconnect@andyholmes.github.io"
            #"pano@elhan.io"\
 
 set -l minimalLook $minimal\
     "burn-my-windows@schneegans.github.com"\
-    "panel-corners@aunetx"
+    "arcmenu@arcmenu.com"
+    #"panel-corners@aunetx"
 
 set -l goodLook $minimalLook\
     "blur-my-shell@aunetx"\
     "compiz-windows-effect@hermes83.github.com"\
-    "openbar@neuromorph"
+    "dash-to-panel@jderose9.github.com"
 
 ### Una sola extensión
 
