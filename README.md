@@ -32,10 +32,12 @@ A collection of script and alias that I was created for my fish shell
 * ordenarApps: organized gnome app grid by name ([Gnome extension needed](https://extensions.gnome.org/extension/4269/alphabetical-app-grid/))
 * perfil-ext: Enable/Disable extension to diferent profiles.
 * random_name: generate a random user name
+* slow_down_audio: Reduce the audo speed of a mp3 file.
 * symlink: create simbolic link (author: [razzius](https://github.com/razzius/fish-functions/tree/master/functions))
 * string-empy: needed for symlink (author: [razzius](https://github.com/razzius/fish-functions/tree/master/functions))
-* toggle-bluetooth: toogle Bluetooth extension ([Bluetooth Batttery Meter needed}](https://extensions.gnome.org/extension/6670/bluetooth-battery-meter/))
+* toggle-bluetooth: toogle Bluetooth extension ([Bluetooth batttery indicator needed](https://extensions.gnome.org/extension/3991/bluetooth-battery/))
 * toggle-mouse: toogle Tiling Shell extension ([Tiling Shell](https://extensions.gnome.org/extension/7065/tiling-shell/))
+* toggle-printers: toogle Printers extension ([Printers](https://extensions.gnome.org/extension/1218/printers/))
 * vidTomiyoo: convert a video in to miyoo mini format (ffmpeg needed)
 * yasfetch: yes, another simple fetch [yasfetch](https://github.com/Nico1942/yasfetch)
 * yip: Year in progress, just for fun
