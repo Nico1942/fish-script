@@ -1,16 +1,16 @@
 #!/usr/bin/env fish
 
-set extension "tilingshell@ferrarodomenico.com"
+set extension "printers@linux-man.org"
 set nombre (gnome-extensions info $extension | awk -F ': ' '/Nombre/ {print $2}')
 set estado (gnome-extensions info $extension | awk '/ Estado: / {print $2}') 
 
 if [ "$estado" = "ACTIVE" ]
   gnome-extensions disable $extension
-  set estado_txt "desactivada"
+  set estado_noti "desacivada."
 else
   gnome-extensions enable $extension
-  set estado_txt "activada"
+  set estado_noti "activada."
 end
 
-notify-send "🖱️ Extension $nombre $estado_txt"
-echo "🖱️ Extension $nombre $estado_txt"
+notify-send "🖨️ Extensión $nombre $estado_noti"
+echo "🖨️ Extensión $nombre $estado_noti"

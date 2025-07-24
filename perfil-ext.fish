@@ -13,9 +13,9 @@ set -l basic "awesome-tiles@velitasali.com"\
 
 set -l minimal $basic\
 	       "printers@linux-man.org"\
-           "clipboard-history@alexsaveau.dev"\
+           "pano@elhan.io"\
            "gsconnect@andyholmes.github.io"
-           #"pano@elhan.io"\
+# "clipboard-history@alexsaveau.dev"\
 
 set -l minimalLook $minimal\
     "burn-my-windows@schneegans.github.com"\
