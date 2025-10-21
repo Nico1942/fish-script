@@ -9,25 +9,22 @@ function yip
 
     ## BARRA
     set SIZE 20
-    set STYLE (random 1 4)
+    set STYLE (random 1 5)
 
     switch $STYLE
-        case 1
-            set BODY "-"
-            set HEAD "⟶"
-            set TO_FILL "•"
-        case 2
-            set BODY "•"
-            set HEAD "$BODY"
-            set TO_FILL "$BODY"
-        case 3
+        case 1 2 3 4
+            set ran_BODY "-" "•"
+            set ran_HEAD "⟶" "-" "•" "⊣" "★"
+            set ran_FILL $ran_BODY
+
+            set BODY $ran_BODY[(random 1 2)]
+            set HEAD $ran_HEAD[(random 1 (count $ran_HEAD))]
+            set TO_FILL $ran_FILL[(random 1 2)]
+
+        case 5
             set BODY "⣿"
             set HEAD "$BODY"
             set TO_FILL "$BODY"
-        case 4
-            set BODY "-"
-            set HEAD "⊣"
-            set TO_FILL "-"
     end
 
     if contains -- -no-time $argv
