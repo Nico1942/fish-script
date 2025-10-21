@@ -6,7 +6,7 @@ function viernesdeescritorio
 
 	contains -- -k $argv; and set img true; or set img false
 
-	contains -- -c $argv; and cls
+	contains -- -c $argv; and clear
 	contains -- -s $argv; and set captura true
 
 	contains -- --off $argv; and set arg1 --off
