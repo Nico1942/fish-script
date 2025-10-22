@@ -43,9 +43,9 @@ A collection of script and alias that I was created for my fish shell
 * tcompras: loop of shopping task for todo.txt
 
 ### Extensions
-* toggle-blue: toogle Bluetooth extension ([Bluetooth batttery indicator needed](https://extensions.gnome.org/extension/3991/bluetooth-battery/)).
-* toggle-cafe:
-* toggle-clima:
-* toggle-music:
-* toggle-mouse: toogle Tiling Shell extension ([Tiling Shell](https://extensions.gnome.org/extension/7065/tiling-shell/)).
-* toggle-printers: toogle Printers extension ([Printers](https://extensions.gnome.org/extension/1218/printers/)).
+* toggle-blue: Bluetooth Battery ([Bluetooth batttery indicator needed](https://extensions.gnome.org/extension/3991/bluetooth-battery/)).
+* toggle-cafe: Caffeine ([Caffeine needed](https://extensions.gnome.org/extension/517/caffeine/)).
+* toggle-clima: Weather O'Clock ([Weather O'Clock needed](https://extensions.gnome.org/extension/5470/weather-oclock/))
+* toggle-music: Media Control ([Media Control needed](https://extensions.gnome.org/extension/4470/media-controls/)).
+* toggle-mouse: Tiling Shell ([Tiling Shell](https://extensions.gnome.org/extension/7065/tiling-shell/)).
+* toggle-printers: Printers ([Printers](https://extensions.gnome.org/extension/1218/printers/)).
