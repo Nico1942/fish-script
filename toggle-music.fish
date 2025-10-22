@@ -1,6 +1,7 @@
 #!/usr/bin/env fish
 
 set extension "mediacontrols@cliffniff.github.com"
+set ico "▶️"
 set nombre (gnome-extensions info $extension | awk -F ': ' '/Nombre/ {print $2}')
 set estado (gnome-extensions info $extension | awk '/ Estado: / {print $2}') 
 
@@ -12,5 +13,5 @@ else
   set estado_txt "activada"
 end
 
-notify-send "▶️ Extension $nombre $estado_txt"
-echo "▶️ Extension $nombre $estado_txt"
+notify-send "$ico Extension $nombre $estado_txt"
+echo "$ico Extension $nombre $estado_txt"
