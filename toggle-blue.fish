@@ -1,5 +1,5 @@
 #!/usr/bin/env fish
-set extension "bluetooth-battery@michalw.github.com"
+set extension "Bluetooth-Battery-Meter@maniacx.github.com"
 set ico "🎧"
 set nombre (gnome-extensions info $extension | awk -F ': ' '/Nombre/ {print $2}')
 set estado (gnome-extensions info $extension | awk '/ Estado: / {print $2}') 
