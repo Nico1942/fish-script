@@ -3,8 +3,8 @@ function tcalendario
 
     set anterior $ayer
     set siguiente $manana
-    set ayer "AYER"
-    set despues "MAÑANA"
+    set dia_ayer "AYER"
+    set dia_despues "MAÑANA"
     
     if [ (date -d "yesterday" +%u) = 7 ]
         set anterior (date -d "yesterday - 2 days" +%Y-%m-%d)
