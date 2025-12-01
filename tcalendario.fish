@@ -16,5 +16,5 @@ function tcalendario
         set dia_despues "LUNES"
     end
     
-    echo -e "$dia_ayer\n===="; t ls due:$anterior;echo -e "$dia_despues\n======"; t ls due:$siguiente
+    echo -e "$dia_ayer\n===="; t ls due:$anterior;echo;echo -e "$dia_despues\n======"; t ls due:$siguiente
 end
