@@ -11,26 +11,28 @@ set -l basic "awesome-tiles@velitasali.com"\
 
 
 set -l minimal $basic\
-	"pano@elhan.io"\
-	"todo.txt@bart.libert.gmail.com"\
-	"gsconnect@andyholmes.github.io"
-# "clipboard-history@alexsaveau.dev"\
+	"gsconnect@andyholmes.github.io" \
+	"copyous@boerdereinar.dev"
+	# "todo.txt@bart.libert.gmail.com"\
+	# "pano@elhan.io"\
 
 set -l minimalLook $minimal\
 	"burn-my-windows@schneegans.github.com"\
-	"arcmenu@arcmenu.com"
+	"arcmenu@arcmenu.com"\
+	"mouse-tail@lanesun.anlbrain.com"
 #"panel-corners@aunetx"
 
 set -l goodLook $minimalLook\
 	"blur-my-shell@aunetx"\
 	"compiz-windows-effect@hermes83.github.com"\
-	"dash-to-panel@jderose9.github.com"
+	"dash-to-dock@micxgx.com"\
+	"openbar@neuromorph"
 
 ### Una sola extensión
 
 set -l cafe "caffeine@patapon.info"
 
-set -l blue "bluetooth-battery@michalw.github.com"
+set -l blue "Bluetooth-Battery-Meter@maniacx.github.com"
 
 set -l mouse "tilingshell@ferrarodomenico.com"
 
