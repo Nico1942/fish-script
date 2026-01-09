@@ -2,7 +2,7 @@ function yasfetch --description 'a simple fetch for fedora and gnome'
 
 	# --- VARIABLES ---
 
-	set -l noLogo false
+	set noLogo false
 
 	if contains -- --off $argv
 		set noLogo true
@@ -59,15 +59,9 @@ function yasfetch --description 'a simple fetch for fedora and gnome'
 	set -l c7 $reset$green
 
 	if $noLogo
-		set logo[1] ""
-		set logo[2] ""
-		set logo[3] ""
-		set logo[4] ""
-		set logo[5] ""
-		set logo[6] ""
-		set logo[7] ""
-		set logo[8] ""
-		set logo[9] ""
+		for i in (seq 10)
+			set logo[$i] ""
+		end
 	else
 		set logo[1] "$c1                 "
 		set logo[2] "$c1    FFFFFF       "
