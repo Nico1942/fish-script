@@ -6,13 +6,13 @@ set extensions (gnome-extensions list --enabled)
 
 ## Perfiles ##
 
-set -l basic "awesome-tiles@velitasali.com"\
+set -l basic "copyous@boerdereinar.dev"\
 	"just-perfection-desktop@just-perfection"
 
 
-set -l minimal $basic\
+set -l minimal $basic "smarttiling@samuelnovaes"\
 	"gsconnect@andyholmes.github.io" \
-	"copyous@boerdereinar.dev"
+	"weatheroclock@CleoMenezesJr.github.io"
 	# "todo.txt@bart.libert.gmail.com"\
 	# "pano@elhan.io"\
 
