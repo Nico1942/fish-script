@@ -9,15 +9,15 @@ end
 # --- Archivo de configuración ---
 set configDir $HOME/.config/perfil-ext
 mkdir -p $configDir
-set configFile $configDir/config.TOML
+set configFile $configDir/config.toml
 
 # Sin TOML
 # set configFile $configDir/perfil.conf
 
 # --- Perfiles y Alias ---
-set perfiles (yq -p=TOML -o=json -r '.PERFILES[]' $configFile)
+set perfiles (yq -p=toml -o=json -r '.PERFILES[]' $configFile)
 # Alias para una sola extensión
-set alias (yq -p=TOML -o=json -r '.SIMPLES[]' $configFile)
+set alias (yq -p=toml -o=json -r '.SIMPLES[]' $configFile)
 
 # Sin TOML
 # set perfiles (awk -F ' = ' '/PERFILES/ { print $2 }' $configFile | string split ' ')
