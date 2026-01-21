@@ -1,30 +1,45 @@
 #!/usr/bin/env fish
 
+# Se necesita yq para manejar archivos TOML.
+command -q yq; or begin
+	echo "ERROR: yq no está instalado."
+	exit 1
+end
+
+# --- Archivo de configuración ---
 set configDir $HOME/.config/perfil-ext
-
 mkdir -p $configDir
-set configFile $configDir/perfil.conf
+set configFile $configDir/config.TOML
 
-set option (awk -F ' = ' '/PERFILES/ { print $2 }' $configFile | string split ' ')
-set optionOne (awk -F ' = ' '/SIMPLES/ { print $2 }' $configFile | string split ' ')
+# Sin TOML
+# set configFile $configDir/perfil.conf
+
+# --- Perfiles y Alias ---
+set perfiles (yq -p=TOML -o=json -r '.PERFILES[]' $configFile)
+# Alias para una sola extensión
+set alias (yq -p=TOML -o=json -r '.SIMPLES[]' $configFile)
+
+# Sin TOML
+# set perfiles (awk -F ' = ' '/PERFILES/ { print $2 }' $configFile | string split ' ')
+# set alias (awk -F ' = ' '/SIMPLES/ { print $2 }' $configFile | string split ' ')
 
 set extensions (gnome-extensions list --enabled)
 
-## Auxiliares ##
+# --- Auxiliares ---
 
 function help
    echo "
 Perfiles:"
-   for i in $option
+   for i in $perfiles
     echo "perfil: $i"
   end
   echo "
 Una sola extensión:"
-  for i in $optionOne
+  for i in $alias
     echo "Ext: $i"
   end
   echo "
-  --edit: Editar archivo de configuración."
+--edit: Editar archivo de configuración."
 end
 
 function nombrar
@@ -33,7 +48,6 @@ function nombrar
 end
 
 function disableAll 
-
     for i in $extensions
       if not contains $i $argv
         echo "Desactivando $(nombrar $i)"
@@ -45,11 +59,13 @@ function disableAll
 end
 
 function getExtensions
-  awk -v perfil="$argv" -F ' = ' '$1 == perfil { print $2 }' $configFile | string split ' '
+	yq -p=TOML -o=json -r ".$arvg[]" $configFile
+
+	# Sin TOML
+	# awk -v perfil="$argv" -F ' = ' '$1 == perfil { print $2 }' $configFile | string split ' '
 end
 
-function main
-
+function activeExtensions
   for ext in $argv
     if not contains $ext $extensions
       echo "Activando $(nombrar $ext)"
@@ -68,11 +84,11 @@ if contains $argv $option
   set extensionPerfil (getExtensions $argv)
   echo "Extensiones: $extensionPerfil"
   disableAll $extensionPerfil
-  main $extensionPerfil
+  activeExtensions $extensionPerfil
 else if contains $argv $optionOne
   echo "Perfil: $argv"
   set extensionPerfil (getExtensions $argv)
-  main $extensionPerfil
+  activeExtensions $extensionPerfil
 else if contains -- "--edit" $argv
   nvim $configFile
 else
