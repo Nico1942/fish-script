@@ -59,7 +59,8 @@ function disableAll
 end
 
 function getExtensions
-	yq -p=TOML -o=json -r ".$arvg[]" $configFile
+	set -l perfil $argv[1]
+	yq -p=toml -o=json -r ".$perfil" $configFile
 
 	# Sin TOML
 	# awk -v perfil="$argv" -F ' = ' '$1 == perfil { print $2 }' $configFile | string split ' '
@@ -79,14 +80,14 @@ function activeExtensions
 
 end
 
-if contains $argv $option
+if contains $argv $perfiles
   echo "Perfil: $argv"
-  set extensionPerfil (getExtensions $argv)
+  set extensionPerfil (getExtensions $argv"[]")
   echo "Extensiones: $extensionPerfil"
   disableAll $extensionPerfil
   activeExtensions $extensionPerfil
-else if contains $argv $optionOne
-  echo "Perfil: $argv"
+else if contains $argv $alias
+  echo "Extensión: $argv"
   set extensionPerfil (getExtensions $argv)
   activeExtensions $extensionPerfil
 else if contains -- "--edit" $argv
