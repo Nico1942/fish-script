@@ -2,14 +2,11 @@ function yasfetch --description 'a simple fetch for fedora and gnome'
 
 	# --- VARIABLES ---
 
-	set noLogo false
 
-	if contains -- --off $argv
-		set noLogo true
-	end
+	contains -- --off $argv; and set noLogo true; or set noLogo false
 
 	function toLower
-		echo $argv | string lower
+		string lower $argv
 	end
 
 	set -l user (whoami)
